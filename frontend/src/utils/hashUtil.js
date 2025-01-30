@@ -1,12 +1,3 @@
+import SHA256 from "crypto-js/sha256";
 
-
-
-
-export const hashEmail = (email) => {
-    let hash = 0;
-    for (let i = 0; i < email.length; i++) {
-      hash = email.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    return hash.toString();
-  };
-  
+export const hashEmail = (email) => SHA256(email).toString();

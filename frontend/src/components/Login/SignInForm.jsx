@@ -1,8 +1,8 @@
 import { useForm } from "react-hook-form";
-import { FORM_FIELDS } from "../constants/FORM_FIELDS";
-import { hashEmail } from "../utils/hashUtil";
-import { USER_STORAGE_KEY } from "../constants/localStorageKeys";
-import { mockPassword } from "../mocks/data/mockPassword";
+import { hashEmail } from "../../utils/hashUtil";
+import { USER_STORAGE_KEY } from "../../constants/localStorageKeys";
+import { mockPassword } from "../../mocks/data/credentials";
+import FormFields from "./FormFields";
 
 export default function SignInForm({ toggleForm }) {
   const {
@@ -27,19 +27,7 @@ export default function SignInForm({ toggleForm }) {
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <h1>Login</h1>
-      <input
-        {...register(FORM_FIELDS.email.name)}
-        type={FORM_FIELDS.email.type}
-        placeholder={FORM_FIELDS.email.placeholder}
-      />
-      <input
-        {...register(FORM_FIELDS.password.name, {
-          required: "Please enter a password",
-        })}
-        type={FORM_FIELDS.password.type}
-        placeholder={FORM_FIELDS.password.placeholder}
-      />
-      {errors.password && <p>{errors.password.message}</p>}
+      <FormFields register={register} errors={errors} />
       <button type="submit">Login</button>
       <button onClick={toggleForm}>Sign up for an account</button>
     </form>

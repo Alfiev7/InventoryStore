@@ -1,6 +1,6 @@
 import { useState } from "react"
-import SignInForm from "../components/SignInForm"
-import SignUpForm from "../components/SignUpForm"
+import SignInForm from "../components/Login/SignInForm"
+import SignUpForm from "../components/Login/SignUpForm"
 
 export default function Login() {
   const [hasAccount, setHasAccount] = useState(false);
