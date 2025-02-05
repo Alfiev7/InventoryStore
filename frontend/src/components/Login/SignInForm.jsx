@@ -3,8 +3,13 @@ import { hashEmail } from "../../utils/hashUtil";
 import { USER_STORAGE_KEY } from "../../constants/localStorageKeys";
 import { mockPassword } from "../../mocks/data/credentials";
 import FormFields from "./FormFields";
+import { useAuth } from "../../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function SignInForm({ toggleForm }) {
+  const { setIsAuthenticated } = useAuth();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
@@ -19,6 +24,8 @@ export default function SignInForm({ toggleForm }) {
       console.warn("User not registered.");
     } else if (mockPassword === data.password) {
       console.log("Logged in successfully!");
+      setIsAuthenticated(true);
+      navigate("/");
     } else {
       console.error("Invalid credentials!");
     }
@@ -46,7 +53,10 @@ export default function SignInForm({ toggleForm }) {
 
       <div className="flex items-center justify-center mt-5 text-sm">
         <p className="text-gray-500">Don't have an account?</p>
-        <button className="text-purple-600  ml-1 cursor-pointer" onClick={toggleForm}>
+        <button
+          className="text-purple-600  ml-1 cursor-pointer"
+          onClick={toggleForm}
+        >
           Sign up
         </button>
       </div>
