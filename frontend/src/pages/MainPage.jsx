@@ -1,7 +1,13 @@
+import Sidebar from "../components/Sidebar";
+import { Outlet } from "react-router-dom";
+
 export default function MainPage() {
   return (
     <div>
-      <h1>Main Page</h1>
+      <Sidebar />
+      <div className="p-6 ml-20">
+        <Outlet />
+      </div>
     </div>
   );
 }
