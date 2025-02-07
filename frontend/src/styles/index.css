@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+@layer base {
+  body {
+    @apply font-serif bg-gray-200;
+  }
+}
+
 @layer components {
   .sidebar-icon {
     @apply relative flex items-center justify-center h-12 w-12 mx-auto shadow-lg

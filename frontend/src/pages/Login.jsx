@@ -9,7 +9,7 @@ export default function Login() {
 
   return (
     <div className=" h-screen flex justify-center items-center font-serif m-auto">
-      <div className="w-80 h-2/4 p-15 rounded-xl shadow-lg flex flex-col items-center justify-center border-t-4 border-purple-600 lg:w-92">
+      <div className="w-80 h-2/4 p-15 rounded-xl shadow-lg flex flex-col items-center justify-center border-t-4 border-purple-600 lg:w-92 bg-white">
         {hasAccount ? (
           <SignInForm toggleForm={toggleHasAccount} />
         ) : (

@@ -5,7 +5,7 @@ export default function MainPage() {
   return (
     <div>
       <Sidebar />
-      <div className="p-6 ml-20">
+      <div className=" ml-20">
         <Outlet />
       </div>
     </div>
