@@ -6,7 +6,6 @@ import ProtectedRoutes from "./utils/ProtectedRoutes.jsx";
 export default function AppRoutes() {
   return (
     <Routes>
-
       <Route element={<ProtectedRoutes />}>
         <Route path="/" element={<MainPage />} />
       </Route>

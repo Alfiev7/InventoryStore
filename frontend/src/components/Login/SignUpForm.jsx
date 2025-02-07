@@ -40,7 +40,10 @@ export default function SignUpForm({ toggleForm }) {
       </button>
       <div className="flex items-center justify-center mt-5 text-sm ">
         <p className="text-gray-500">Already have an account?</p>
-        <button className="text-purple-600  ml-1 cursor-pointer" onClick={toggleForm}>
+        <button
+          className="text-purple-600  ml-1 cursor-pointer"
+          onClick={toggleForm}
+        >
           Login
         </button>
       </div>
