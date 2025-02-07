@@ -5,12 +5,16 @@ const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(
-    !!localStorage.getItem(USER_STORAGE_KEY)
+    isUserStorageKeyExists()
   );
+
+  function isUserStorageKeyExists() {
+    return !!localStorage.getItem(USER_STORAGE_KEY);
+  }
 
   useEffect(() => {
     const checkAuth = () => {
-      setIsAuthenticated(!!localStorage.getItem(USER_STORAGE_KEY));
+      setIsAuthenticated(isUserStorageKeyExists());
     };
 
     window.addEventListener("storage", checkAuth);

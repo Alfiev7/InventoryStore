@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import Login from "./pages/Login.jsx";
-import MainPage from "./pages/MainPage.jsx";
-import ProtectedRoutes from "./utils/ProtectedRoutes.jsx";
+import Login from "../pages/Login.jsx";
+import MainPage from "../pages/MainPage.jsx";
+import ProtectedRoutes from "./ProtectedRoutes.jsx";
 
 export default function AppRoutes() {
   return (
