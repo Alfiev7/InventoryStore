@@ -26,6 +26,7 @@ export default function SignInForm({ toggleForm }) {
       setIsAuthenticated(true);
       navigate("/");
     } else {
+      console.error("Invalid credentials!");
     }
   };
 
