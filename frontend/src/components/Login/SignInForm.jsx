@@ -5,6 +5,7 @@ import { mockPassword } from "../../mocks/data/credentials";
 import FormFields from "./FormFields";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import AuthenticationForm from "./AuthenticationForm";
 
 export default function SignInForm({ toggleForm }) {
   const { setIsAuthenticated } = useAuth();
@@ -21,9 +22,7 @@ export default function SignInForm({ toggleForm }) {
     const hashedEmail = hashEmail(data.email);
 
     if (!storedData || storedData.email !== hashedEmail) {
-      console.warn("User not registered.");
     } else if (mockPassword === data.password) {
-      console.log("Logged in successfully!");
       setIsAuthenticated(true);
       navigate("/");
     } else {
@@ -32,18 +31,12 @@ export default function SignInForm({ toggleForm }) {
   };
 
   return (
-    <form
+    <AuthenticationForm
+      title={"Log In"}
+      subtitle={"Good to see you again."}
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col gap-5  items-center "
     >
-      <div className="flex flex-col gap-1 items-center">
-        <h1 className="text-2xl">Log In</h1>
-        <h1 className="italic  text-gray-500 text-sm">
-          Good to see you again.
-        </h1>
-      </div>
       <FormFields register={register} errors={errors} />
-
       <button
         className=" cursor-pointer w-full text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center "
         type="submit"
@@ -60,6 +53,6 @@ export default function SignInForm({ toggleForm }) {
           Sign up
         </button>
       </div>
-    </form>
+    </AuthenticationForm>
   );
 }
