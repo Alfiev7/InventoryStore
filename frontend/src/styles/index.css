@@ -24,4 +24,8 @@
   .configInputField {
     @apply border-1 border-gray-300 p-2 rounded-lg text-sm w-full;
   }
+
+  .configInputTitle {
+    @apply text-gray-600 text-sm;
+  }
 }

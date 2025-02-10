@@ -4,7 +4,7 @@ export default function ConfigFormFields({ register }) {
   return (
     <div className="flex flex-col gap-5 items-center">
       <div className="configInputContainer">
-        <p className="text-gray-600 text-sm">Store name</p>
+        <p className="configInputTitle">Store name</p>
         <input
           className="configInputField"
           {...register(CONFIG_FORM_FIELDS.name.name)}
@@ -14,7 +14,7 @@ export default function ConfigFormFields({ register }) {
       </div>
 
       <div className="configInputContainer">
-        <p className="text-gray-600 text-sm">Website address</p>
+        <p className="configInputTitle">Website address</p>
         <input
           className="configInputField"
           {...register(CONFIG_FORM_FIELDS.url.name)}
@@ -24,7 +24,7 @@ export default function ConfigFormFields({ register }) {
       </div>
 
       <div className="configInputContainer">
-        <p className="text-gray-600 text-sm">Support email</p>
+        <p className="configInputTitle">Support email</p>
         <input
           className="configInputField"
           {...register(CONFIG_FORM_FIELDS.email.name)}
