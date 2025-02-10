@@ -16,4 +16,12 @@
   .active {
     @apply bg-purple-600 text-white rounded-xl;
   }
+
+  .configInputContainer {
+    @apply flex flex-col gap-2 w-full;
+  }
+
+  .configInputField {
+    @apply border-1 border-gray-300 p-2 rounded-lg text-sm w-full;
+  }
 }
