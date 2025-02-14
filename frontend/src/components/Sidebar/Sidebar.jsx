@@ -10,6 +10,9 @@ export default function Sidebar() {
       <div>
         This is a test
       </div>
+      <div>
+        This is the second change that Im doing
+      </div>
     </div>
   );
 }
