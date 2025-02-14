@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
-import { hashEmail } from "../../utils/hashUtil";
-import { USER_STORAGE_KEY } from "../../constants/localStorageKeys";
-import FormFields from "./FormFields";
-import AuthenticationForm from "./AuthenticationForm";
+import { useForm } from 'react-hook-form';
+import { hashEmail } from '../../utils/hashUtil';
+import { USER_STORAGE_KEY } from '../../constants/localStorageKeys';
+import FormFields from './FormFields';
+import AuthenticationForm from './AuthenticationForm';
 export default function SignUpForm({ toggleForm }) {
   const {
     register,
@@ -12,19 +12,12 @@ export default function SignUpForm({ toggleForm }) {
 
   const onSubmit = (data) => {
     const hashedEmail = hashEmail(data.email);
-    localStorage.setItem(
-      USER_STORAGE_KEY,
-      JSON.stringify({ email: hashedEmail })
-    );
+    localStorage.setItem(USER_STORAGE_KEY, JSON.stringify({ email: hashedEmail }));
     toggleForm();
   };
 
   return (
-    <AuthenticationForm
-      title="Sign Up"
-      subtitle="Register your account."
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <AuthenticationForm title="Sign Up" subtitle="Register your account." onSubmit={handleSubmit(onSubmit)}>
       <FormFields register={register} errors={errors} />
 
       <button
@@ -36,10 +29,7 @@ export default function SignUpForm({ toggleForm }) {
 
       <div className="flex items-center justify-center mt-5 text-sm">
         <p className="text-gray-500">Already have an account?</p>
-        <button
-          className="text-purple-600 ml-1 cursor-pointer"
-          onClick={toggleForm}
-        >
+        <button className="text-purple-600 ml-1 cursor-pointer" onClick={toggleForm}>
           Login
         </button>
       </div>

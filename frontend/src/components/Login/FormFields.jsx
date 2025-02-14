@@ -1,4 +1,4 @@
-import { FORM_FIELDS } from "../../constants/FORM_FIELDS";
+import { FORM_FIELDS } from '../../constants/FORM_FIELDS';
 
 export default function FormFields({ register, errors }) {
   return (
@@ -11,16 +11,11 @@ export default function FormFields({ register, errors }) {
       />
       <input
         className="border-1 border-gray-300 p-2 rounded-lg"
-        {...register(
-          FORM_FIELDS.password.name,
-          FORM_FIELDS.password.validation
-        )}
+        {...register(FORM_FIELDS.password.name, FORM_FIELDS.password.validation)}
         type={FORM_FIELDS.password.type}
         placeholder={FORM_FIELDS.password.placeholder}
       />
-      {errors.password && (
-        <p className="text-red-600">{errors.password.message}</p>
-      )}
+      {errors.password && <p className="text-red-600">{errors.password.message}</p>}
     </div>
   );
 }

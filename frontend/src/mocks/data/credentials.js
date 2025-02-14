@@ -1,1 +1,1 @@
-export const mockPassword = "123123";
+export const mockPassword = '123123';

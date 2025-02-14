@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom";
-import Login from "../pages/Login.jsx";
-import MainPage from "../pages/MainPage.jsx";
-import Config from "../pages/Config.jsx";
-import Orders from "../pages/Orders.jsx";
-import Inventory from "../pages/Inventory.jsx";
-import ProtectedRoutes from "./ProtectedRoutes.jsx";
+import { Routes, Route } from 'react-router-dom';
+import Login from '../pages/Login.jsx';
+import MainPage from '../pages/MainPage.jsx';
+import Config from '../pages/Config.jsx';
+import Orders from '../pages/Orders.jsx';
+import Inventory from '../pages/Inventory.jsx';
+import ProtectedRoutes from './ProtectedRoutes.jsx';
 
 export default function AppRoutes() {
   return (

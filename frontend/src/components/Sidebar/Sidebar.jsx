@@ -1,5 +1,5 @@
-import sidebarData from "./SideBarData";
-import SidebarItem from "./SidebarItem";
+import sidebarData from './SideBarData';
+import SidebarItem from './SidebarItem';
 
 export default function Sidebar() {
   return (

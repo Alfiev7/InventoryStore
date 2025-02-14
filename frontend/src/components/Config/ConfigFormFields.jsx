@@ -1,4 +1,4 @@
-import { CONFIG_FORM_FIELDS } from "../../constants/CONFIG_FORM_FIELDS";
+import { CONFIG_FORM_FIELDS } from '../../constants/CONFIG_FORM_FIELDS';
 
 export default function ConfigFormFields({ register }) {
   return (
