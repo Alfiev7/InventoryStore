@@ -1,6 +1,6 @@
 import ConfigFormFields from '../components/Config/ConfigFormFields';
-import { USER_CONFIG_KEY } from '../constants/localStorageKeys';
 import { useForm } from 'react-hook-form';
+import Button from '../components/ui/Button';
 
 export default function Config() {
   const {
@@ -10,8 +10,7 @@ export default function Config() {
   } = useForm();
 
   const onSubmit = (data) => {
-    localStorage.setItem(USER_CONFIG_KEY, JSON.stringify(data));
-    alert('Configuration saved!');
+    console.log(data, 'Configuration saved!');
   };
 
   return (
@@ -20,9 +19,7 @@ export default function Config() {
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <ConfigFormFields register={register} errors={errors} />
-        <button type="submit" className="w-full bg-purple-500 text-white p-2 rounded-md">
-          Save Configuration
-        </button>
+        <Button type="submit">Save Configuration</Button>
       </form>
     </div>
   );
