@@ -9,6 +9,7 @@ export default function Sidebar() {
       ))}
       <div>
         This is a test
+        <a href="/test">Test</a>
       </div>
       <span>Something else</span>
     </div>
