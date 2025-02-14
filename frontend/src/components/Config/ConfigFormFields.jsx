@@ -1,37 +1,27 @@
 import { CONFIG_FORM_FIELDS } from '../../constants/CONFIG_FORM_FIELDS';
 
-export default function ConfigFormFields({ register }) {
+const ConfigFieldForm = ({ register, field }) => {
   return (
     <div className="flex flex-col gap-5 items-center">
-      <div className="configInputContainer">
-        <p className="configInputTitle">Store name</p>
+      <div className="flex flex-col gap-2 w-full">
+        <p className="text-gray-600 text-sm">{field.title}</p>
         <input
-          className="configInputField"
-          {...register(CONFIG_FORM_FIELDS.name.name)}
-          type={CONFIG_FORM_FIELDS.name.type}
-          placeholder={CONFIG_FORM_FIELDS.name.placeholder}
+          className="border-1 border-gray-300 p-2 rounded-lg text-sm w-full mb-3"
+          {...register(field.name)}
+          type={field.type}
+          placeholder={field.placeholder}
         />
       </div>
+    </div>
+  );
+};
 
-      <div className="configInputContainer">
-        <p className="configInputTitle">Website address</p>
-        <input
-          className="configInputField"
-          {...register(CONFIG_FORM_FIELDS.url.name)}
-          type={CONFIG_FORM_FIELDS.url.type}
-          placeholder={CONFIG_FORM_FIELDS.url.placeholder}
-        />
-      </div>
-
-      <div className="configInputContainer">
-        <p className="configInputTitle">Support email</p>
-        <input
-          className="configInputField"
-          {...register(CONFIG_FORM_FIELDS.email.name)}
-          type={CONFIG_FORM_FIELDS.email.type}
-          placeholder={CONFIG_FORM_FIELDS.email.placeholder}
-        />
-      </div>
+export default function ConfigFormFields({ register }) {
+  return (
+    <div>
+      {Object.values(CONFIG_FORM_FIELDS).map((field) => (
+        <ConfigFieldForm key={field.name} register={register} field={field} />
+      ))}
     </div>
   );
 }
