@@ -7,12 +7,6 @@ export default function Sidebar() {
       {sidebarData.map(({ to, icon }, index) => (
         <SidebarItem key={index} to={to} icon={icon} />
       ))}
-      <div>
-        This is a test
-      </div>
-      <div>
-        This is the second change that Im doing
-      </div>
     </div>
   );
 }
