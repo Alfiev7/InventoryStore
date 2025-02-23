@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { mockOrders } from '../mocks/data/mockOrders';
-// import OrderItemsTable from '../components/Orders/OrderItemsTable';
+import OrderItemsTable from '../components/Orders/OrderItemsTable';
 import OrderInfo from '../components/Orders/OrderInfo';
 
 export default function OrderDetails() {
@@ -13,7 +13,7 @@ export default function OrderDetails() {
         <h1 className="text-3xl font-bold text-purple-700 mb-6 text-center">Order Details</h1>
 
         <OrderInfo order={order} />
-        {/* <OrderItemsTable orderItems={order.items} /> */}
+        <OrderItemsTable orderItems={order.items} />
 
       </div>
     </div>
