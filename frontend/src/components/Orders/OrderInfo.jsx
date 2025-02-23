@@ -33,6 +33,14 @@ export default function OrderInfo({ order }) {
           <p className="">Country:</p>
           <p className="text-lg text-purple-700">{order.country}</p>
         </div>
+        <div>
+          <p className="">Coupon:</p>
+          <p className="text-lg text-purple-700">{order.coupons[0].name}</p>
+        </div>
+        <div>
+          <p className="">Coupon Information:</p>
+          <p className="text-lg text-purple-700">{order.coupons[0].information}</p>
+        </div>
       </div>
     );
   }
