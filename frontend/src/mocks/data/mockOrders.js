@@ -12,6 +12,9 @@ export const mockOrders = [
     city: "New York",
     phone: "+1 123 456 7890",
     country: "USA",
+    coupons: [
+      { id: 1001, name: "SPRING10", information: "10% off your order" }
+    ]
   },
   {
     id: 2,
@@ -26,6 +29,9 @@ export const mockOrders = [
     city: "Los Angeles",
     phone: "+1 987 654 3210",
     country: "USA",
+    coupons: [
+      { id: 999, name: "WINTER15OFF", information: "15% off all store" }
+    ]
   },
   {
     id: 3,
@@ -39,6 +45,9 @@ export const mockOrders = [
     city: "Chicago",
     phone: "+1 555 333 2222",
     country: "USA",
+    coupons: [
+      { id: 1002, name: "SUMMER5", information: "5% off your order" }
+    ]
   },
   {
     id: 4,
@@ -53,6 +62,9 @@ export const mockOrders = [
     city: "San Francisco",
     phone: "+1 444 222 1111",
     country: "USA",
+    coupons: [
+      { id: 1003, name: "FALL20", information: "20% off your order" }
+    ]
   },
   {
     id: 5,
@@ -67,6 +79,9 @@ export const mockOrders = [
     city: "Houston",
     phone: "+1 777 888 9999",
     country: "USA",
+    coupons: [
+      { id: 1004, name: "NEW25", information: "25% off your first order" }
+    ]
   },
   {
     id: 6,
@@ -81,9 +96,11 @@ export const mockOrders = [
     city: "Miami",
     phone: "+1 666 555 4444",
     country: "USA",
+    coupons: [
+      { id: 1005, name: "VIP30", information: "30% off your order" }
+    ]
   },
 ];
-
 
 mockOrders.forEach(order => {
   order.itemsAmount = order.items.length;
