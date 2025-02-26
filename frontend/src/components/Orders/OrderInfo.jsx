@@ -1,47 +1,31 @@
+import { coupons } from '../../mocks/data/coupons';
+
 export default function OrderInfo({ order }) {
-    return (
-      <div className="grid grid-cols-2 gap-6 text-gray-700 font-semibold">
-        <div>
-          <p className="">Name:</p>
-          <p className="text-lg text-purple-700">{order.name}</p>
-        </div>
-        <div>
-          <p className="">Total Amount:</p>
-          <p className="text-lg text-purple-700">${order.totalAmount}</p>
-        </div>
-        <div>
-          <p className="">Number of Items:</p>
-          <p className="text-lg text-purple-700">{order.items.length}</p>
-        </div>
-        <div>
-          <p className="">Date:</p>
-          <p className="text-lg text-purple-700">{order.date}</p>
-        </div>
-        <div>
-          <p className="">Address:</p>
-          <p className="text-lg text-purple-700">{order.address}</p>
-        </div>
-        <div>
-          <p className="">City:</p>
-          <p className="text-lg text-purple-700">{order.city}</p>
-        </div>
-        <div>
-          <p className="">Phone Number:</p>
-          <p className="text-lg text-purple-700">{order.phone}</p>
-        </div>
-        <div>
-          <p className="">Country:</p>
-          <p className="text-lg text-purple-700">{order.country}</p>
-        </div>
-        <div>
-          <p className="">Coupon:</p>
-          <p className="text-lg text-purple-700">{order.coupons[0].name}</p>
-        </div>
-        <div>
-          <p className="">Coupon Information:</p>
-          <p className="text-lg text-purple-700">{order.coupons[0].information}</p>
-        </div>
+  const couponDetails = order.coupons[0] ? coupons.find((coupon) => coupon.id === order.coupons[0].id) : null;
+
+  const orderFields = [
+    { label: 'Name', value: order.name },
+    { label: 'Total Amount', value: `$${order.totalAmount.toFixed(2)}` },
+    { label: 'Number of Items', value: order.items.length },
+    { label: 'Date', value: order.date },
+    { label: 'Address', value: order.address },
+    { label: 'City', value: order.city },
+    { label: 'Phone Number', value: order.phone },
+    { label: 'Country', value: order.country },
+    { label: 'Coupon Name', value: couponDetails ? couponDetails.name : 'No coupon applied' },
+    { label: 'Coupon Information', value: couponDetails ? couponDetails.information : 'N/A' },
+  ];
+
+  return (
+    <div>
+      <div className="grid grid-cols-2 gap-6 text-gray-700">
+        {orderFields.map((field, index) => (
+          <div key={index} className="flex flex-col">
+            <span className="text-gray-500">{field.label}:</span>
+            <span className="text-lg font-semibold text-purple-700">{field.value}</span>
+          </div>
+        ))}
       </div>
-    );
-  }
-  
+    </div>
+  );
+}
