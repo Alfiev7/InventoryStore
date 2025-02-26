@@ -3,7 +3,12 @@ import { mockOrders } from '../../mocks/data/mockOrders';
 
 const columns = [
   { field: 'name', headerName: 'Name', flex: 1 },
-  { field: 'totalAmount', headerName: 'Total Amount ($)', flex: 1 },
+  {
+    field: 'totalAmount',
+    headerName: 'Total Amount ($)',
+    flex: 1,
+    renderCell: (params) => `$${params.value.toFixed(2)}`,
+  },
   { field: 'itemsAmount', headerName: 'Items Amount', flex: 1 },
   { field: 'date', headerName: 'Date', flex: 1 },
   { field: 'address', headerName: 'Address', flex: 1 },
