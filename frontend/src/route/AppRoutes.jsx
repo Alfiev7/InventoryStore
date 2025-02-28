@@ -5,6 +5,7 @@ import Config from '../pages/Config.jsx';
 import Orders from '../pages/Orders.jsx';
 import Inventory from '../pages/Inventory.jsx';
 import ProtectedRoutes from './ProtectedRoutes.jsx';
+import OrderDetails from '../pages/OrderDetails.jsx';
 
 export default function AppRoutes() {
   return (
@@ -13,6 +14,7 @@ export default function AppRoutes() {
         <Route path="/" element={<MainPage />}>
           <Route path="/config" element={<Config />} />
           <Route path="/orders" element={<Orders />} />
+          <Route path="/orders/:order_id" element={<OrderDetails />} />
           <Route path="/inventory" element={<Inventory />} />
         </Route>
       </Route>

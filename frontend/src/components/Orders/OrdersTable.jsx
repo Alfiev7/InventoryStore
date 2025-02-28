@@ -2,9 +2,9 @@ import { DataGrid } from '@mui/x-data-grid';
 import { mockOrders } from '../../mocks/data/mockOrders';
 
 const columns = [
-  { field: 'name', headerName: 'Name', flex: 1,},
+  { field: 'name', headerName: 'Name', flex: 1 },
   { field: 'totalAmount', headerName: 'Total Amount ($)', flex: 1 },
-  { field: 'items', headerName: 'Items Amount', flex: 1 },
+  { field: 'itemsAmount', headerName: 'Items Amount', flex: 1 },
   { field: 'date', headerName: 'Date', flex: 1 },
   { field: 'address', headerName: 'Address', flex: 1 },
   { field: 'city', headerName: 'City', flex: 1 },
