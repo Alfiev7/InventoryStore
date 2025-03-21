@@ -1,5 +1,5 @@
 import { items } from './items.js';
-import { coupons } from './coupons.js';
+import { calculateDiscountedPrice } from '../../utils/calculate.js';
 
 export const mockOrders = [
   {
@@ -81,21 +81,6 @@ export const mockOrders = [
     coupons: [{ id: 2006 }],
   },
 ];
-
-const calculateDiscountedPrice = (order) => {
-  let totalPrice = order.items.reduce((sum, item) => sum + item.price, 0);
-
-  let totalDiscount = 0;
-  order.coupons.forEach((coupon) => {
-    const foundCoupon = coupons.find((c) => c.id === coupon.id);
-    if (foundCoupon) {
-      totalDiscount += foundCoupon.discount;
-    }
-  });
-
-  const discountAmount = (totalPrice * totalDiscount) / 100;
-  return totalPrice - discountAmount;
-};
 
 mockOrders.forEach((order) => {
   order.items = order.items.map((orderedItem) => {
