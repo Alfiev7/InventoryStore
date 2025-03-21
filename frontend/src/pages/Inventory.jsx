@@ -4,7 +4,6 @@ export default function Inventory() {
   const navigate = useNavigate()
 
   const onItemClick = (itemId) => {
-    console.log('Navigating to item:', itemId);
     navigate(`/itemDetails/${itemId}`);
   };
 
