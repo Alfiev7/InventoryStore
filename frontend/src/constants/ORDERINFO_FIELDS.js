@@ -7,4 +7,5 @@ export const ORDERINFO_FIELDS = [
   { label: 'City', key: 'city' },
   { label: 'Phone Number', key: 'phone' },
   { label: 'Country', key: 'country' },
+  { label: 'Coupons', key: 'coupons', isArray: true }, 
 ];
