@@ -1,6 +1,5 @@
 import { useParams } from 'react-router-dom';
 import { mockOrders } from '../mocks/data/mockOrders';
-import OrderItemsTable from '../components/Orders/OrderItemsTable';
 import Header from '../components/header/Header';
 import CardLayout from '../components/card-layout/CardLayout';
 
@@ -15,7 +14,6 @@ export default function OrderDetails() {
       <CardLayout>
         <Header>Order Details</Header>
         <OrderInfo order={order} />
-        <OrderItemsTable orderItems={order.items} />
       </CardLayout>
     </div>
   );
