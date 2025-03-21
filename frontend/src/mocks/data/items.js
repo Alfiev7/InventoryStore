@@ -6,7 +6,7 @@ export const items = [
     quantity: 50,
     price: 199,
     availableColors: ['#000000', '#FF0000', '#0000FF'],
-    previewImage: 'https://asset.cloudinary.com/ds8ryiaxd/b01761de361bfdb794e6009e3782ec8b',
+    previewImage: 'https://res.cloudinary.com/ds8ryiaxd/image/upload/v1740562896/principal_2000_krjsgv.jpg',
     addedDate: '2025-02-26',
   },
   {
@@ -16,7 +16,7 @@ export const items = [
     quantity: 100,
     price: 59,
     availableColors: ['#FFFFFF', '#00FF00', '#000000'],
-    previewImage: 'https://asset.cloudinary.com/ds8ryiaxd/50125f0875e867ee7d3ee9e3d9e8663d',
+    previewImage: 'https://res.cloudinary.com/ds8ryiaxd/image/upload/v1740563052/Razer-Basilisk-V3_20220426-124554_full_ty2t4y.jpg',
     addedDate: '2025-02-25',
   },
   {
@@ -26,7 +26,7 @@ export const items = [
     quantity: 75,
     price: 129,
     availableColors: ['#FF4500', '#1E90FF', '#32CD32'],
-    previewImage: 'https://asset.cloudinary.com/ds8ryiaxd/ed0edd9f2cb362bdfdcf235dbf5e01e6',
+    previewImage: 'https://res.cloudinary.com/ds8ryiaxd/image/upload/v1740562896/71T1WQSxp9L_vjpgbd.jpg',
     addedDate: '2025-02-24',
   },
   {
@@ -36,7 +36,7 @@ export const items = [
     quantity: 40,
     price: 299,
     availableColors: ['#000000', '#808080', '#8B4513'],
-    previewImage: 'https://asset.cloudinary.com/ds8ryiaxd/74e551567cc3686ead7e6045eac74737',
+    previewImage: 'https://res.cloudinary.com/ds8ryiaxd/image/upload/v1740562896/51bCiZ8AAJL_tfugjq.jpg',
     addedDate: '2025-02-23',
   },
   {
@@ -46,7 +46,7 @@ export const items = [
     quantity: 20,
     price: 499,
     availableColors: ['#000000'],
-    previewImage: 'https://asset.cloudinary.com/ds8ryiaxd/4015954e695ce7fafb88bea6e303c319',
+    previewImage: 'https://res.cloudinary.com/ds8ryiaxd/image/upload/v1740562896/faf6ce31f42f47baa7a5b01c00fc79e4_q060jq.webp',
     addedDate: '2025-02-22',
   },
 ];
