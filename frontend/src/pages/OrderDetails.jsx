@@ -15,10 +15,8 @@ export default function OrderDetails() {
       <CardLayout>
         <Header>Order Details</Header>
         <OrderInfo order={order} />
-      </CardLayout>
         <OrderItemsTable orderItems={order.items} />
-
-      </div>
+      </CardLayout>
     </div>
   );
 }
