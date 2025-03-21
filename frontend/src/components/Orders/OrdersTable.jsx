@@ -1,5 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid';
 import { mockOrders } from '../../mocks/data/mockOrders';
+import { DOLLAR } from '../../constants/globals';
 
 const columns = [
   { field: 'name', headerName: 'Name', flex: 1 },
@@ -7,7 +8,7 @@ const columns = [
     field: 'totalAmount',
     headerName: 'Total Amount ($)',
     flex: 1,
-    renderCell: (params) => `$${params.value.toFixed(2)}`,
+    renderCell: (params) => `${DOLLAR}${params.value.toFixed(2)}`,
   },
   { field: 'itemsAmount', headerName: 'Items Amount', flex: 1 },
   { field: 'date', headerName: 'Date', flex: 1 },
