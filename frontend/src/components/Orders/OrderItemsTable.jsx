@@ -18,6 +18,16 @@ const columns = [
       </div>
     ),
   },
+  {
+    field: 'previewImage',
+    headerName: 'Preview Image',
+    flex: 1,
+    renderCell: (params) => (
+      <div className="flex justify-center items-center h-full w-full">
+        <img src={params.value} alt="Preview" className="w-12 h-12 object-cover rounded-md border border-gray-300" />
+      </div>
+    ),
+  },
   { field: 'category', headerName: 'Category', flex: 2 },
 ];
 
