@@ -25,7 +25,7 @@ export const mockOrders = [
     city: 'Los Angeles',
     phone: '+1 987 654 3210',
     country: 'USA',
-    coupons: [{ id: 2002 }],
+    coupons: [{ id: 2002 }, { id: 2001 }],
   },
   {
     id: 3,
