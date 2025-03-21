@@ -14,7 +14,7 @@ const columns = [
 
 export default function OrdersTable({ onOrderClick }) {
   return (
-    <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-5xl border border-gray-200 ">
+    <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-5xl border border-gray-200">
       <DataGrid
         rows={mockOrders.map((order) => ({ ...order, id: order.id }))}
         rowCount={mockOrders.length}
