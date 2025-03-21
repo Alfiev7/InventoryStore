@@ -1,4 +1,5 @@
 import OrdersTable from '../components/Orders/OrdersTable';
+import Header from '../components/header/Header';
 import { useNavigate } from 'react-router-dom';
 
 export default function Orders() {
@@ -11,7 +12,7 @@ export default function Orders() {
 
   return (
     <div className="p-8 bg-gray-100 min-h-screen flex flex-col items-center">
-      <h2 className="text-3xl font-semibold text-purple-700 mb-6">Orders</h2>
+      <Header>Orders</Header>
       <OrdersTable onOrderClick={onOrderClick} />
     </div>
   );

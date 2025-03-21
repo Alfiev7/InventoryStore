@@ -1,6 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { mockOrders } from '../mocks/data/mockOrders';
-import OrderItemsTable from '../components/Orders/OrderItemsTable';
+import Header from '../components/header/Header';
+import CardLayout from '../components/card-layout/CardLayout';
+
 import OrderInfo from '../components/Orders/OrderInfo';
 
 export default function OrderDetails() {
@@ -9,13 +11,10 @@ export default function OrderDetails() {
 
   return (
     <div className="flex flex-col items-center min-h-screen bg-gray-100 p-6">
-      <div className="bg-white shadow-lg rounded-lg p-8 max-w-3xl w-full border border-gray-200 flex flex-col">
-        <h1 className="text-3xl font-bold text-purple-700 mb-6 text-center">Order Details</h1>
-
+      <CardLayout>
+        <Header>Order Details</Header>
         <OrderInfo order={order} />
-        <OrderItemsTable orderItems={order.items} />
-
-      </div>
+      </CardLayout>
     </div>
   );
 }
