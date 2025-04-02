@@ -26,10 +26,14 @@ export default function Inventory() {
     setShowModal(false);
   };
 
+  const handleDeleteItem = (id) => {
+    setItemList((prev) => prev.filter((item) => item.id !== id));
+  };
+
   return (
     <div className="p-8 bg-gray-100 min-h-screen flex flex-col items-center">
       <h2 className="text-3xl font-semibold text-purple-700 mb-6">Inventory</h2>
-      <InventoryTable items={itemList} onItemClick={onItemClick} />
+      <InventoryTable items={itemList} onItemClick={onItemClick} onDeleteItem={handleDeleteItem} />
 
       <button
         onClick={() => setShowModal(true)}
