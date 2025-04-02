@@ -3,10 +3,12 @@ import { items } from '../mocks/data/items';
 import Header from '../components/header/Header';
 import ItemInfo from '../components/Items/ItemInfo';
 import CardLayout from '../components/card-layout/CardLayout';
+import { ITEM_STORAGE_KEY } from '../constants/localStorageKeys';
 
 export default function ItemDetails() {
   const { item_id } = useParams();
-  const item = items.find((item) => item.id === parseInt(item_id));
+  const storedItems = JSON.parse(localStorage.getItem(ITEM_STORAGE_KEY)) || [];
+  const item = storedItems.find((item) => item.id === parseInt(item_id));
 
   if (!item) return <div>Item not found</div>;
 
