@@ -1,6 +1,8 @@
 import { ITEMINFO_FIELDS } from '../../constants/ITEMINFO_FIELDS';
 import Field from '../field/Field';
 import { DOLLAR } from '../../constants/globals';
+import ColorPreview from './ColorPreview';
+import ImagePreview from './ImagePreview';
 
 export default function ItemInfo({ item }) {
   return (
@@ -18,28 +20,14 @@ export default function ItemInfo({ item }) {
       {item.availableColors && item.availableColors.length > 0 && (
         <div className="col-span-2">
           <div className="mb-1">Colors:</div>
-          <div className="flex gap-4">
-            {item.availableColors.map((color, i) => (
-              <div
-                key={i}
-                className="w-6 h-6 rounded border shadow"
-                style={{ backgroundColor: color }}
-              />
-            ))}
-          </div>
+          <ColorPreview colors={item.availableColors} />
         </div>
       )}
 
       {item.previewImage && (
         <div className="col-span-2">
           <div className="mb-1">Image:</div>
-          <div className="flex overflow-x-auto gap-4">
-            <img
-              src={item.previewImage}
-              alt="Item preview"
-              className="h-32 rounded shadow object-cover"
-            />
-          </div>
+          <ImagePreview src={item.previewImage} />
         </div>
       )}
     </div>
