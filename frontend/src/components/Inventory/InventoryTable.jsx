@@ -1,4 +1,6 @@
 import { DataGrid } from '@mui/x-data-grid';
+import ColorPreview from '../Items/ColorPreview';
+import ImagePreview from '../Items/ImagePreview';
 
 const columns = [
   { field: 'name', headerName: 'Name', flex: 1 },
@@ -8,7 +10,7 @@ const columns = [
     field: 'price',
     headerName: 'Price',
     flex: 1,
-    renderCell: (params) => `$${params.value.toFixed(2)}`
+    renderCell: (params) => `$${params.value.toFixed(2)}`,
   },
   {
     field: 'availableColors',
@@ -16,13 +18,7 @@ const columns = [
     flex: 1,
     renderCell: (params) => (
       <div className="flex justify-center items-center h-full w-full gap-1">
-        {params.value.map((color, index) => (
-          <div
-            key={index}
-            className="w-5 h-5 rounded-md border border-gray-300"
-            style={{ backgroundColor: color }}
-          />
-        ))}
+        <ColorPreview colors={params.value} />
       </div>
     ),
   },
@@ -32,11 +28,9 @@ const columns = [
     flex: 1,
     renderCell: (params) => (
       <div className="flex justify-center items-center h-full w-full">
-        <img
-          src={params.value}
-          alt="Preview"
-          className="w-12 h-12 object-cover rounded-md border border-gray-300"
-        />
+        <div className="w-12 h-12 rounded-md border border-gray-300 overflow-hidden">
+          <ImagePreview src={params.value} />
+        </div>
       </div>
     ),
   },

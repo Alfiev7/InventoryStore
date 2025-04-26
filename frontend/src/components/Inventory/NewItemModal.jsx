@@ -1,19 +1,22 @@
 import { useState } from 'react';
-import { ITEM_STORAGE_KEY } from '../../constants/localStorageKeys';
+import { useInventory } from '../../context/InventoryContext';
 import NewItemFormFields from './NewItemFormFields';
 
-export default function NewItemModal({ onClose, onSubmit }) {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    quantity: '',
-    price: '',
-    previewImage: '',
-    availableColors: ['#000000'],
-  });
+const formDefaultValues = {
+  name: '',
+  category: '',
+  quantity: '',
+  price: '',
+  previewImage: '',
+  availableColors: ['#000000'],
+};
 
-  const storedItems = JSON.parse(localStorage.getItem(ITEM_STORAGE_KEY)) || [];
-  const categories = [...new Set(storedItems.map(item => item.category))];
+
+export default function NewItemModal({ onClose, onSubmit }) {
+  const { items } = useInventory();
+  const [formData, setFormData] = useState(formDefaultValues);
+
+  const options = [...new Set(items.map((item) => item.category))];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -51,11 +54,7 @@ export default function NewItemModal({ onClose, onSubmit }) {
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl w-[400px] shadow space-y-5">
         <h2 className="text-xl font-semibold text-center">Add New Item</h2>
 
-        <NewItemFormFields
-          formData={formData}
-          handleChange={handleChange}
-          categories={categories}
-        />
+        <NewItemFormFields formData={formData} handleChange={handleChange} options={options} />
 
         <div className="flex flex-col gap-2">
           <p className="text-gray-600 text-sm">Colors</p>
@@ -69,14 +68,22 @@ export default function NewItemModal({ onClose, onSubmit }) {
                 className="w-10 h-10 border rounded cursor-pointer"
               />
             ))}
-            <button type="button" onClick={addColor} className="text-purple-600 text-sm hover:underline hover:text-purple-900">
+            <button
+              type="button"
+              onClick={addColor}
+              className="text-purple-600 text-sm hover:underline hover:text-purple-900"
+            >
               + Add Color
             </button>
           </div>
         </div>
 
         <div className="flex justify-end gap-2 pt-2">
-          <button type="button" onClick={onClose} className="px-4 py-2 bg-gray-200 rounded-lg text-sm hover:bg-gray-400">
+          <button
+            type="button"
+            onClick={onClose}
+            className="px-4 py-2 bg-gray-200 rounded-lg text-sm hover:bg-gray-400"
+          >
             Cancel
           </button>
           <button type="submit" className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-900">

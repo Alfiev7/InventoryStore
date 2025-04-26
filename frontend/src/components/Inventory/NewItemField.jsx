@@ -4,7 +4,6 @@ export default function NewItemField({ field, value, onChange, options }) {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-gray-600 text-sm">{field.title}</p>
-
       {field.type === 'select' ? (
         <select
           name={field.name}
