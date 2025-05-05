@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useInventory } from '../../context/InventoryContext';
-import NewItemFormFields from './NewItemFormFields';
+import ItemModalFormFields from './ItemModalFormFields';
 
-const formDefaultValues = {
+const defaultValues = {
   name: '',
   category: '',
   quantity: '',
@@ -11,10 +11,26 @@ const formDefaultValues = {
   availableColors: ['#000000'],
 };
 
-
-export default function NewItemModal({ onClose, onSubmit }) {
+export default function ItemModal({ onClose, onSubmit, mode = 'new', existingItem }) {
   const { items } = useInventory();
-  const [formData, setFormData] = useState(formDefaultValues);
+  const isEditing = mode === 'edit';
+
+  const [formData, setFormData] = useState(defaultValues);
+
+  useEffect(() => {
+    if (isEditing && existingItem) {
+      setFormData({
+        name: existingItem.name || '',
+        category: existingItem.category || '',
+        quantity: existingItem.quantity?.toString() || '',
+        price: existingItem.price?.toString() || '',
+        previewImage: existingItem.previewImage || '',
+        availableColors: existingItem.availableColors || ['#000000'],
+      });
+    } else {
+      setFormData(defaultValues);
+    }
+  }, [isEditing, existingItem]);
 
   const options = [...new Set(items.map((item) => item.category))];
 
@@ -38,23 +54,23 @@ export default function NewItemModal({ onClose, onSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newItem = {
+    const item = {
       ...formData,
-      id: Date.now(),
+      id: isEditing ? existingItem.id : Date.now(),
       quantity: parseInt(formData.quantity),
       price: parseFloat(formData.price),
-      addedDate: new Date().toISOString().split('T')[0],
+      addedDate: isEditing ? existingItem.addedDate : new Date().toISOString().split('T')[0],
     };
-    onSubmit(newItem);
+    onSubmit(item);
     onClose();
   };
 
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.7)] flex items-center justify-center z-50">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl w-[400px] shadow space-y-5">
-        <h2 className="text-xl font-semibold text-center">Add New Item</h2>
+        <h2 className="text-xl font-semibold text-center">{isEditing ? 'Edit Item' : 'Add New Item'}</h2>
 
-        <NewItemFormFields formData={formData} handleChange={handleChange} options={options} />
+        <ItemModalFormFields formData={formData} handleChange={handleChange} options={options} />
 
         <div className="flex flex-col gap-2">
           <p className="text-gray-600 text-sm">Colors</p>
@@ -87,7 +103,7 @@ export default function NewItemModal({ onClose, onSubmit }) {
             Cancel
           </button>
           <button type="submit" className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-900">
-            Add Item
+            {isEditing ? 'Save Changes' : 'Add Item'}
           </button>
         </div>
       </form>

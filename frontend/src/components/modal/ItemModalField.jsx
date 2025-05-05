@@ -1,6 +1,6 @@
 import { DOLLAR } from '../../constants/globals';
 
-export default function NewItemField({ field, value, onChange, options }) {
+export default function ItemModalField({ field, value, onChange, options }) {
   return (
     <div className="flex flex-col gap-2">
       <p className="text-gray-600 text-sm">{field.title}</p>
