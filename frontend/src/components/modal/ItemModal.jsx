@@ -65,10 +65,18 @@ export default function ItemModal({ onClose, onSubmit, mode = 'new', existingIte
     onClose();
   };
 
+  function getHeaderTitle(isEditing) {
+    return isEditing ? 'Edit Item' : 'Add New Item';
+  }
+
+  function getConfirmButtonText(isEditing) {
+    return isEditing ? 'Save Changes' : 'Add Item';
+  }
+
   return (
     <div className="fixed inset-0 bg-[rgba(0,0,0,0.7)] flex items-center justify-center z-50">
       <form onSubmit={handleSubmit} className="bg-white p-6 rounded-xl w-[400px] shadow space-y-5">
-        <h2 className="text-xl font-semibold text-center">{isEditing ? 'Edit Item' : 'Add New Item'}</h2>
+        <h2 className="text-xl font-semibold text-center">{getHeaderTitle(isEditing)}</h2>
 
         <ItemModalFormFields formData={formData} handleChange={handleChange} options={options} />
 
@@ -103,7 +111,7 @@ export default function ItemModal({ onClose, onSubmit, mode = 'new', existingIte
             Cancel
           </button>
           <button type="submit" className="px-4 py-2 bg-purple-600 text-white rounded-lg text-sm hover:bg-purple-900">
-            {isEditing ? 'Save Changes' : 'Add Item'}
+            {getConfirmButtonText(isEditing)}
           </button>
         </div>
       </form>

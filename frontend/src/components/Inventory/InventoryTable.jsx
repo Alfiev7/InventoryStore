@@ -74,10 +74,7 @@ export default function InventoryTable({ items, onItemClick, onEditClick, onDele
   return (
     <div className="bg-white shadow-lg rounded-lg p-6 w-full max-w-5xl border border-gray-200">
       <DataGrid
-        rows={items.map((item) => ({
-          ...item,
-          id: item.id,
-        }))}
+        rows={items}
         rowCount={items.length}
         columns={columns}
         onRowClick={(params) => onItemClick(params.row.id)}

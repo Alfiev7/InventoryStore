@@ -5,16 +5,16 @@ import { useInventory } from '../context/InventoryContext';
 import ItemModal from '../components/modal/ItemModal';
 import ConfirmModal from '../components/modal/ConfirmModal';
 import toast from 'react-hot-toast';
+import useModal from '../hooks/useModal';
 
 export default function Inventory() {
   const navigate = useNavigate();
-  const [showModal, setShowModal] = useState(false);
-  const [editModalOpen, setEditModalOpen] = useState(false);
   const [itemToEdit, setItemToEdit] = useState(null);
-  const [confirmOpen, setConfirmOpen] = useState(false);
   const [itemIdToDelete, setItemIdToDelete] = useState(null);
-
   const { items, addItem, removeItem, updateItem } = useInventory();
+  const addModal = useModal();
+  const editModal = useModal();
+  const confirmModal = useModal();
 
   const onItemClick = (itemId) => {
     navigate(`/itemDetails/${itemId}`);
@@ -23,33 +23,33 @@ export default function Inventory() {
   const handleAddItem = (newItem) => {
     addItem(newItem);
     toast.success('Item added!');
-    setShowModal(false);
+    addModal.close();
   };
 
   const handleEditClick = (itemId) => {
     const item = items.find((i) => i.id === itemId);
     if (item) {
       setItemToEdit(item);
-      setEditModalOpen(true);
+      editModal.open();
     }
   };
 
   const handleUpdateItem = (updatedItem) => {
     updateItem(updatedItem);
     toast.success('Item updated!');
-    setEditModalOpen(false);
+    editModal.close();
     setItemToEdit(null);
   };
 
   const handleDeleteClick = (itemId) => {
     setItemIdToDelete(itemId);
-    setConfirmOpen(true);
+    confirmModal.open();
   };
 
   const confirmDelete = () => {
     removeItem(itemIdToDelete);
     toast.success('Item deleted!');
-    setConfirmOpen(false);
+    confirmModal.close();
     setItemIdToDelete(null);
   };
 
@@ -64,32 +64,32 @@ export default function Inventory() {
       />
 
       <button
-        onClick={() => setShowModal(true)}
+        onClick={addModal.open}
         className="mt-6 px-6 py-2 bg-purple-600 text-white rounded shadow hover:bg-purple-700"
       >
         Add New Item
       </button>
 
-      {showModal && <ItemModal mode="new" onClose={() => setShowModal(false)} onSubmit={handleAddItem} />}
+      {addModal.isOpen && <ItemModal mode="new" onClose={addModal.close} onSubmit={handleAddItem} />}
 
-      {editModalOpen && itemToEdit && (
+      {editModal.isOpen && itemToEdit && (
         <ItemModal
           mode="edit"
           existingItem={itemToEdit}
           onClose={() => {
-            setEditModalOpen(false);
+            editModal.close();
             setItemToEdit(null);
           }}
           onSubmit={handleUpdateItem}
         />
       )}
 
-      {confirmOpen && (
+      {confirmModal.isOpen && (
         <ConfirmModal
           message="Are you sure you want to delete this item?"
           onConfirm={confirmDelete}
           onCancel={() => {
-            setConfirmOpen(false);
+            confirmModal.close();
             setItemIdToDelete(null);
           }}
         />
