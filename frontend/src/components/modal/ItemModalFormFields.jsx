@@ -1,9 +1,9 @@
 import { NEW_ITEM_FORM_FIELDS } from '../../constants/NEW_ITEM_FORM_FIELDS';
-import NewItemField from './NewItemField';
+import ItemModalField from './ItemModalField';
 
-export default function NewItemFormFields({ formData, handleChange, options }) {
+export default function ItemModalFormFields({ formData, handleChange, options }) {
   return Object.values(NEW_ITEM_FORM_FIELDS).map((field) => (
-    <NewItemField
+    <ItemModalField
       key={field.name}
       field={field}
       value={formData[field.name]}
