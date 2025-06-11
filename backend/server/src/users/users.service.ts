@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import users from './mock-users.json';
+import mockUsers from './mock-users.json';
+
+let users = [...mockUsers];
 
 @Injectable()
 export class UsersService {
@@ -9,5 +11,11 @@ export class UsersService {
 
   getAllusers() {
     return users;
+  }
+
+  createUser(userData: any) {
+    let newUser = {id: users.length + 1, ...userData};
+    users.push(newUser);
+    return newUser;
   }
 }

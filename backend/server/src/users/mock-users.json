@@ -1,12 +1,20 @@
 [
   {
     "id": 1,
-    "name": "Alfie",
+    "username": "Alfie",
+    "password": "123456",
+    "first_name": "Alfie",
+    "last_name": "A",
+    "is_active": true,
     "email": "alfie@example.com"
   },
   {
     "id": 2,
-    "name": "Raz",
+    "username": "Raz",
+    "password": "123456",
+    "first_name": "Raz",
+    "last_name": "L",
+    "is_active": true,
     "email": "raz@example.com"
   }
 ]
